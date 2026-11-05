@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f5f7f2">
+    <title>Catatan Pengeluaran Mahasiswa</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            padding: 28px 16px;
+            color: #1d302b;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(rgba(245, 247, 242, .82), rgba(245, 247, 242, .82)), url("finance-pattern.png") repeat;
+            background-size: 420px;
+        }
+        .page { width: min(100%, 760px); margin: auto; }
+        .topbar { margin-bottom: 20px; color: #48635b; font-size: .8rem; font-weight: bold; }
+        .brand-mark { color: #24724e; }
+        .intro { margin-bottom: 18px; }
+        .eyebrow { margin: 0 0 6px; color: #37805d; font-size: .75rem; font-weight: bold; }
+        h1 { margin: 0; color: #173a2d; font-size: clamp(1.8rem, 5vw, 2.7rem); }
+        .intro-copy, .section-copy { color: #64746d; line-height: 1.5; }
+        .intro-copy { margin: 8px 0 0; }
+        .dashboard { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .panel { padding: 18px; border-radius: 14px; background: rgba(255, 255, 255, .94); }
+        .balance-card { grid-column: 1 / -1; color: white; background: #24724e; }
+        .balance-label, .balance-value, .balance-caption { margin: 0; }
+        .balance-value { margin: 4px 0; font-size: 2rem; }
+        .balance-caption { color: #d8eee0; font-size: .85rem; }
+        .right-column { display: grid; align-content: start; gap: 12px; }
+        h2 { margin: 0; color: #203d31; font-size: 1rem; }
+        .section-copy { margin: 5px 0 12px; font-size: .85rem; }
+        .info-list { display: grid; gap: 8px; margin: 10px 0 0; padding: 0; color: #41554b; font-size: .88rem; list-style: none; }
+        .info-list li { display: flex; align-items: center; gap: 10px; padding: 7px 0; }
+        .info-list li::before { width: 8px; height: 8px; flex: 0 0 8px; border-radius: 50%; background: #35805a; content: ""; }
+        .steps-list { display: block; padding-left: 22px; list-style: decimal; }
+        .steps-list li { display: list-item; padding: 7px 0; }
+        .steps-list li::before { content: none; }
+        .steps-list li::marker { color: #35805a; font-weight: bold; }
+        .wallet-summary { margin: 10px 0 0; color: #30493b; font-size: .88rem; }
+        .wallet-summary div { display: flex; justify-content: space-between; gap: 12px; padding: 8px 0; border-bottom: 1px solid #edf1ed; }
+        .wallet-summary div:last-child { border: 0; }
+        .wallet-summary dt { color: #728078; }
+        .wallet-summary dd { margin: 0; font-weight: bold; }
+        .wallet-summary .remaining dt, .wallet-summary .remaining dd { color: #24724e; font-weight: bold; }
+        footer { margin-top: 16px; color: #849189; font-size: .75rem; text-align: center; }
+        @media (max-width: 600px) {
+            body { padding: 20px 12px; }
+            .dashboard { grid-template-columns: 1fr; }
+            .balance-card { grid-column: auto; }
+        }
+    </style>
+</head>
+<body>
+    <main class="page">
+        <div class="topbar">
+            <span class="brand-mark" aria-hidden="true">↗</span>
+            <span>Ruang Finansial Mahasiswa</span>
+        </div>
+
+        <header class="intro">
+            <p class="eyebrow">Kelola uang dengan lebih tenang</p>
+            <h1>Catatan Pengeluaran</h1>
+            <p class="intro-copy">Catat pengeluaran harianmu, kenali ke mana uang pergi, dan jaga saldo tetap terencana.</p>
+        </header>
+
+        <div class="dashboard">
+            <section class="panel balance-card" aria-labelledby="balance-title">
+                <p class="balance-label" id="balance-title">Sisa saldo hari ini</p>
+                <p class="balance-value">Rp 425.000</p>
+                <p class="balance-caption">Dari saldo awal Rp 500.000</p>
+            </section>
+
+            <section class="panel panel-content" aria-labelledby="categories-title">
+                <h2 id="categories-title">Kategori pengeluaran rutin</h2>
+                <p class="section-copy">Kelompokkan pengeluaran supaya lebih mudah dipantau.</p>
+                <ul class="info-list" aria-label="Kategori pengeluaran rutin">
+                    <li>Konsumsi <small>(makan, minum, kopi)</small></li>
+                    <li>Transportasi <small>(bensin, parkir)</small></li>
+                    <li>Keperluan kuliah <small>(print tugas, buku)</small></li>
+                </ul>
+            </section>
+
+            <div class="right-column">
+                <section class="panel panel-content" aria-labelledby="steps-title">
+                    <h2 id="steps-title">Cara mencatat</h2>
+                    <p class="section-copy">Tiga langkah sederhana untuk mencatat pengeluaran.</p>
+                    <ol class="info-list steps-list" aria-label="Cara mencatat pengeluaran">
+                        <li>Hitung total uang yang baru saja dipakai.</li>
+                        <li>Pilih kategori pengeluaran yang sesuai.</li>
+                        <li>Tulis nominalnya dan kurangi dari saldo.</li>
+                    </ol>
+                </section>
+
+                <section class="panel panel-content" aria-labelledby="summary-title">
+                    <h2 id="summary-title">Ringkasan dompet</h2>
+                    <dl class="wallet-summary">
+                        <div><dt>Saldo awal</dt><dd>Rp 500.000</dd></div>
+                        <div><dt>Total pengeluaran</dt><dd>Rp 75.000</dd></div>
+                        <div class="remaining"><dt>Sisa saldo</dt><dd>Rp 425.000</dd></div>
+                    </dl>
+                </section>
+            </div>
+        </div>
+
+        <footer>Mulai dari catatan kecil, untuk kebiasaan finansial yang lebih baik.</footer>
+    </main>
+</body>
+</html>
